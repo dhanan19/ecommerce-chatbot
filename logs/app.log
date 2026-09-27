@@ -1,0 +1,445 @@
+2026-09-27 12:26:42,940 | ERROR | LLM_ERROR user=alice@example.com error=process() takes no keyword arguments
+2026-09-27 12:26:42,940 | ERROR | AGENT_ERROR user=alice@example.com error=process() takes no keyword arguments
+2026-09-27 12:26:42,940 | ERROR | AGENT_ERROR user=alice@example.com error=process() takes no keyword arguments
+2026-09-27 12:26:42,940 | ERROR | AGENT_ERROR user=alice@example.com error=process() takes no keyword arguments
+2026-09-27 12:26:42,956 | ERROR | AGENT_ERROR user=alice@example.com error=process() takes no keyword arguments
+2026-09-27 12:26:53,632 | ERROR | LLM_ERROR user=alice@example.com error=process() takes no keyword arguments
+2026-09-27 12:26:53,632 | ERROR | AGENT_ERROR user=alice@example.com error=process() takes no keyword arguments
+2026-09-27 12:26:53,632 | ERROR | AGENT_ERROR user=alice@example.com error=process() takes no keyword arguments
+2026-09-27 12:26:53,632 | ERROR | AGENT_ERROR user=alice@example.com error=process() takes no keyword arguments
+2026-09-27 12:26:53,633 | ERROR | AGENT_ERROR user=alice@example.com error=process() takes no keyword arguments
+2026-09-27 12:27:33,929 | ERROR | LLM_ERROR user=alice@example.com error=process() takes no keyword arguments
+2026-09-27 12:27:33,929 | ERROR | AGENT_ERROR user=alice@example.com error=process() takes no keyword arguments
+2026-09-27 12:27:33,929 | ERROR | AGENT_ERROR user=alice@example.com error=process() takes no keyword arguments
+2026-09-27 12:27:33,929 | ERROR | AGENT_ERROR user=alice@example.com error=process() takes no keyword arguments
+2026-09-27 12:27:33,941 | ERROR | AGENT_ERROR user=alice@example.com error=process() takes no keyword arguments
+2026-09-27 12:30:32,054 | ERROR | LLM_ERROR user=alice@example.com error=process() takes no keyword arguments
+2026-09-27 12:30:32,054 | ERROR | AGENT_ERROR user=alice@example.com error=process() takes no keyword arguments
+2026-09-27 12:30:32,054 | ERROR | AGENT_ERROR user=alice@example.com error=process() takes no keyword arguments
+2026-09-27 12:30:32,054 | ERROR | AGENT_ERROR user=alice@example.com error=process() takes no keyword arguments
+2026-09-27 12:30:32,066 | ERROR | AGENT_ERROR user=alice@example.com error=process() takes no keyword arguments
+2026-09-27 12:32:52,873 | ERROR | LLM_ERROR user=alice@example.com error=process() takes no keyword arguments
+2026-09-27 12:32:52,873 | ERROR | AGENT_ERROR user=alice@example.com error=process() takes no keyword arguments
+2026-09-27 12:32:52,873 | ERROR | AGENT_ERROR user=alice@example.com error=process() takes no keyword arguments
+2026-09-27 12:32:52,873 | ERROR | AGENT_ERROR user=alice@example.com error=process() takes no keyword arguments
+2026-09-27 12:32:52,885 | ERROR | AGENT_ERROR user=alice@example.com error=process() takes no keyword arguments
+2026-09-27 12:38:17,114 | ERROR | LLM_ERROR user=alice@example.com error=process() takes no keyword arguments
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1988, in _generate
+    raise e
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1979, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1318, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1439, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1147, in request
+    response = self._send_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_client.py", line 601, in _send_request
+    response = self._send_with_auth_retry(request, stream=stream, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_client.py", line 580, in _send_with_auth_retry
+    response = super()._send_request(request, stream=stream, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1068, in _send_request
+    return self._client.send(request, stream=stream, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/httpx2/_client.py", line 994, in send
+    raise exc
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/httpx2/_client.py", line 988, in send
+    response.read()
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/httpx2/_models.py", line 876, in read
+    self._content = b"".join(self.iter_bytes())
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/httpx2/_models.py", line 893, in iter_bytes
+    for decoded in decoder.decode(raw_bytes):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/httpx2/_decoders.py", line 191, in decode
+    decompressed = self._decompress(data, output_buffer_limit=output_buffer_limit)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: process() takes no keyword arguments
+
+2026-09-27 12:38:17,115 | ERROR | AGENT_ERROR user=alice@example.com error=process() takes no keyword arguments
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 488, in invoke
+    self.generate_prompt(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1988, in _generate
+    raise e
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1979, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1318, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1439, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1147, in request
+    response = self._send_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_client.py", line 601, in _send_request
+    response = self._send_with_auth_retry(request, stream=stream, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_client.py", line 580, in _send_with_auth_retry
+    response = super()._send_request(request, stream=stream, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1068, in _send_request
+    return self._client.send(request, stream=stream, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/httpx2/_client.py", line 994, in send
+    raise exc
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/httpx2/_client.py", line 988, in send
+    response.read()
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/httpx2/_models.py", line 876, in read
+    self._content = b"".join(self.iter_bytes())
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/httpx2/_models.py", line 893, in iter_bytes
+    for decoded in decoder.decode(raw_bytes):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/httpx2/_decoders.py", line 191, in decode
+    decompressed = self._decompress(data, output_buffer_limit=output_buffer_limit)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: process() takes no keyword arguments
+
+2026-09-27 12:38:17,116 | ERROR | AGENT_ERROR user=alice@example.com error=process() takes no keyword arguments
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 440, in invoke
+    ret = context.run(self.func, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/prebuilt/chat_agent_executor.py", line 679, in call_model
+    response = cast(AIMessage, static_model.invoke(model_input, config))  # type: ignore[union-attr]
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 488, in invoke
+    self.generate_prompt(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1988, in _generate
+    raise e
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1979, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1318, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1439, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1147, in request
+    response = self._send_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_client.py", line 601, in _send_request
+    response = self._send_with_auth_retry(request, stream=stream, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_client.py", line 580, in _send_with_auth_retry
+    response = super()._send_request(request, stream=stream, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1068, in _send_request
+    return self._client.send(request, stream=stream, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/httpx2/_client.py", line 994, in send
+    raise exc
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/httpx2/_client.py", line 988, in send
+    response.read()
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/httpx2/_models.py", line 876, in read
+    self._content = b"".join(self.iter_bytes())
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/httpx2/_models.py", line 893, in iter_bytes
+    for decoded in decoder.decode(raw_bytes):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/httpx2/_decoders.py", line 191, in decode
+    decompressed = self._decompress(data, output_buffer_limit=output_buffer_limit)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: process() takes no keyword arguments
+
+2026-09-27 12:38:17,117 | ERROR | AGENT_ERROR user=alice@example.com error=process() takes no keyword arguments
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 707, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 440, in invoke
+    ret = context.run(self.func, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/prebuilt/chat_agent_executor.py", line 679, in call_model
+    response = cast(AIMessage, static_model.invoke(model_input, config))  # type: ignore[union-attr]
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 488, in invoke
+    self.generate_prompt(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1988, in _generate
+    raise e
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1979, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1318, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1439, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1147, in request
+    response = self._send_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_client.py", line 601, in _send_request
+    response = self._send_with_auth_retry(request, stream=stream, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_client.py", line 580, in _send_with_auth_retry
+    response = super()._send_request(request, stream=stream, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1068, in _send_request
+    return self._client.send(request, stream=stream, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/httpx2/_client.py", line 994, in send
+    raise exc
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/httpx2/_client.py", line 988, in send
+    response.read()
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/httpx2/_models.py", line 876, in read
+    self._content = b"".join(self.iter_bytes())
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/httpx2/_models.py", line 893, in iter_bytes
+    for decoded in decoder.decode(raw_bytes):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/httpx2/_decoders.py", line 191, in decode
+    decompressed = self._decompress(data, output_buffer_limit=output_buffer_limit)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: process() takes no keyword arguments
+
+2026-09-27 12:38:17,120 | ERROR | AGENT_ERROR user=alice@example.com error=process() takes no keyword arguments
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2967, in stream
+    for _ in runner.tick(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 207, in tick
+    run_with_retry(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 617, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 707, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 440, in invoke
+    ret = context.run(self.func, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/prebuilt/chat_agent_executor.py", line 679, in call_model
+    response = cast(AIMessage, static_model.invoke(model_input, config))  # type: ignore[union-attr]
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 488, in invoke
+    self.generate_prompt(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1988, in _generate
+    raise e
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1979, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1318, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1439, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1147, in request
+    response = self._send_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_client.py", line 601, in _send_request
+    response = self._send_with_auth_retry(request, stream=stream, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_client.py", line 580, in _send_with_auth_retry
+    response = super()._send_request(request, stream=stream, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1068, in _send_request
+    return self._client.send(request, stream=stream, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/httpx2/_client.py", line 994, in send
+    raise exc
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/httpx2/_client.py", line 988, in send
+    response.read()
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/httpx2/_models.py", line 876, in read
+    self._content = b"".join(self.iter_bytes())
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/httpx2/_models.py", line 893, in iter_bytes
+    for decoded in decoder.decode(raw_bytes):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/httpx2/_decoders.py", line 191, in decode
+    decompressed = self._decompress(data, output_buffer_limit=output_buffer_limit)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: process() takes no keyword arguments
+During task with name 'agent' and id '91a5d0f2-bff4-d9d0-51a4-2624bb2f77db'
+
+2026-09-27 12:38:17,122 | ERROR | CHAT_ERROR user=alice@example.com
+Traceback (most recent call last):
+  File "/home/dhananjay/Downloads/ecommerce-support-agent/src/app_customer.py", line 95, in render_chat
+    reply, _interrupted = invoke_agent(user.email, st.session_state.conversation_id, user_input)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/Downloads/ecommerce-support-agent/src/agent.py", line 129, in invoke_agent
+    result = agent.invoke({"messages": [("user", tagged_message)]}, config=config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/pregel/main.py", line 3913, in invoke
+    for chunk in self.stream(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2967, in stream
+    for _ in runner.tick(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 207, in tick
+    run_with_retry(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 617, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 707, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 440, in invoke
+    ret = context.run(self.func, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/prebuilt/chat_agent_executor.py", line 679, in call_model
+    response = cast(AIMessage, static_model.invoke(model_input, config))  # type: ignore[union-attr]
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 488, in invoke
+    self.generate_prompt(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1988, in _generate
+    raise e
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1979, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1318, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1439, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1147, in request
+    response = self._send_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_client.py", line 601, in _send_request
+    response = self._send_with_auth_retry(request, stream=stream, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_client.py", line 580, in _send_with_auth_retry
+    response = super()._send_request(request, stream=stream, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1068, in _send_request
+    return self._client.send(request, stream=stream, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/httpx2/_client.py", line 994, in send
+    raise exc
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/httpx2/_client.py", line 988, in send
+    response.read()
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/httpx2/_models.py", line 876, in read
+    self._content = b"".join(self.iter_bytes())
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/httpx2/_models.py", line 893, in iter_bytes
+    for decoded in decoder.decode(raw_bytes):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/httpx2/_decoders.py", line 191, in decode
+    decompressed = self._decompress(data, output_buffer_limit=output_buffer_limit)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: process() takes no keyword arguments
+During task with name 'agent' and id '91a5d0f2-bff4-d9d0-51a4-2624bb2f77db'
+
+2026-09-27 12:42:02,143 | INFO | TOOL_START user=alice@example.com tool=sql_db_query input={'query': "SELECT * FROM orders WHERE user_id = (SELECT id FROM users WHERE email = 'alice@example.com') ORDER BY order_date DESC LIMIT 5;"}
+2026-09-27 12:42:02,145 | INFO | TOOL_END user=alice@example.com duration=0.00s output=content="[(2, 1, 'SHIPPED', '2024-10-16T09:00:00', 129.99), (1, 1, 'DELIVERED', '2024-10-01T09:00:00', 105.98)]" name='sql_db_query' tool_call_id='call_jRQ6KEOhZStXUr1M8oqJqvv2'
+2026-09-27 12:43:07,313 | INFO | TOOL_START user=alice@example.com tool=sql_db_query input={'query': "SELECT * FROM orders WHERE id = 2 AND user_id = (SELECT id FROM users WHERE email = 'alice@example.com');"}
+2026-09-27 12:43:07,314 | INFO | TOOL_END user=alice@example.com duration=0.00s output=content="[(2, 1, 'SHIPPED', '2024-10-16T09:00:00', 129.99)]" name='sql_db_query' tool_call_id='call_HouQ458ZQqQVxWnW8xXFNgMX'
+2026-09-27 12:43:18,658 | INFO | TOOL_START user=alice@example.com tool=sql_db_query input={'query': "SELECT name FROM users WHERE email = 'alice@example.com';"}
+2026-09-27 12:43:18,659 | INFO | TOOL_END user=alice@example.com duration=0.00s output=content="Error: (sqlite3.OperationalError) no such column: name\n[SQL: SELECT name FROM users WHERE email = 'alice@example.com';]\n(Background on this error at: https://sqlalche.me/e/21/e3q8)" name='s...
+2026-09-27 12:43:19,432 | INFO | TOOL_START user=alice@example.com tool=sql_db_schema input={'table_names': 'users'}
+2026-09-27 12:43:19,434 | INFO | TOOL_END user=alice@example.com duration=0.00s output=content="\nCREATE TABLE users (\n\tid INTEGER, \n\temail TEXT NOT NULL, \n\tpassword TEXT NOT NULL, \n\tfull_name TEXT NOT NULL, \n\trole TEXT NOT NULL, \n\tcreated_at TEXT NOT NULL, \n\tPRIMARY KEY (...
