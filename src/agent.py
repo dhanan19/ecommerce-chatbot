@@ -33,7 +33,7 @@ from src.gmail_tool import send_gmail_notification
 from src.logging_middleware import AgentObservabilityHandler
 from src.rag_tool import rag_policy_search
 
-SYSTEM_PROMPT = """You are ShopBot, the customer support assistant for an online store.
+SYSTEM_PROMPT = """You are the YourKart virtual assistant, the customer support assistant for the YourKart online store.
 
 You have three kinds of tools:
 1. SQL tools (sql_db_query, sql_db_schema, etc.) — for anything specific to

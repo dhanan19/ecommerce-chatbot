@@ -22,8 +22,10 @@ import streamlit as st
 from src.auth import login
 from src.agent import resume_thread
 from src.config import DB_PATH
+from src.ui_theme import apply_theme, render_header
 
-st.set_page_config(page_title="ShopBot — Admin Dashboard", page_icon="🛠️", layout="wide")
+st.set_page_config(page_title="YourKart — Admin Dashboard", page_icon="🛠️", layout="centered")
+apply_theme()
 
 
 def _conn():
@@ -33,7 +35,8 @@ def _conn():
 
 
 def render_login():
-    st.title("🛠️ ShopBot Admin")
+    render_header("Admin Console")
+    st.subheader("Admin login")
     with st.form("admin_login"):
         email = st.text_input("Admin email")
         password = st.text_input("Password", type="password")
@@ -57,7 +60,8 @@ def render_dashboard():
             st.session_state.pop("admin", None)
             st.rerun()
 
-    st.title("Return & Cancellation Review Queue")
+    render_header("Admin Console")
+    st.subheader("Return & Cancellation Review Queue")
 
     col1, col2, col3 = st.columns(3)
     with col1:
@@ -111,13 +115,13 @@ def render_dashboard():
                     notes = st.text_input("Notes to customer (optional)", key=f"notes_{row['id']}")
                     b1, b2 = st.columns(2)
                     with b1:
-                        if st.button("✅ Approve", key=f"approve_{row['id']}", use_container_width=True):
+                        if st.button("✅ Approve", key=f"approve_{row['id']}", width="stretch"):
                             with st.spinner("Resuming customer thread..."):
                                 reply = resume_thread(row["thread_id"], True, admin.email, notes)
                             st.success(f"Approved. Agent said: {reply}")
                             st.rerun()
                     with b2:
-                        if st.button("❌ Reject", key=f"reject_{row['id']}", use_container_width=True):
+                        if st.button("❌ Reject", key=f"reject_{row['id']}", width="stretch"):
                             with st.spinner("Resuming customer thread..."):
                                 reply = resume_thread(row["thread_id"], False, admin.email, notes)
                             st.warning(f"Rejected. Agent said: {reply}")
@@ -129,11 +133,15 @@ def render_dashboard():
     tickets = conn.execute("SELECT * FROM tickets ORDER BY created_at DESC LIMIT 50").fetchall()
     conn.close()
     if tickets:
-        st.dataframe(
-            [dict(t) for t in tickets],
-            use_container_width=True,
-            hide_index=True,
-        )
+        # Rendered manually (not st.dataframe) to avoid a pandas/numpy import —
+        # this environment has a broken pandas/numpy ABI outside our control.
+        cols = tickets[0].keys()
+        header = " | ".join(cols)
+        st.markdown(f"**{header}**")
+        st.divider()
+        for t in tickets:
+            row_dict = dict(t)
+            st.text(" | ".join(str(row_dict[c]) for c in cols))
     else:
         st.caption("No tickets yet.")
 

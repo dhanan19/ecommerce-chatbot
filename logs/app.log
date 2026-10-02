@@ -443,3 +443,1980 @@ During task with name 'agent' and id '91a5d0f2-bff4-d9d0-51a4-2624bb2f77db'
 2026-09-27 12:43:18,659 | INFO | TOOL_END user=alice@example.com duration=0.00s output=content="Error: (sqlite3.OperationalError) no such column: name\n[SQL: SELECT name FROM users WHERE email = 'alice@example.com';]\n(Background on this error at: https://sqlalche.me/e/21/e3q8)" name='s...
 2026-09-27 12:43:19,432 | INFO | TOOL_START user=alice@example.com tool=sql_db_schema input={'table_names': 'users'}
 2026-09-27 12:43:19,434 | INFO | TOOL_END user=alice@example.com duration=0.00s output=content="\nCREATE TABLE users (\n\tid INTEGER, \n\temail TEXT NOT NULL, \n\tpassword TEXT NOT NULL, \n\tfull_name TEXT NOT NULL, \n\trole TEXT NOT NULL, \n\tcreated_at TEXT NOT NULL, \n\tPRIMARY KEY (...
+2026-09-27 20:13:34,919 | INFO | EVENT user=alice@example.com action=send_gmail_notification summary=simulated: Test success=True
+2026-09-28 22:10:11,839 | ERROR | LLM_ERROR user=alice@example.com error=Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-***************************************************************************************************************************...
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1979, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1984, in _generate
+    _handle_openai_api_error(e)
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 724, in _handle_openai_api_error
+    raise OpenAIAuthenticationError(
+langchain_openai.chat_models.base.OpenAIAuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+2026-09-28 22:10:11,840 | ERROR | AGENT_ERROR user=alice@example.com error=Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-***************************************************************************************************************************...
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1979, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 488, in invoke
+    self.generate_prompt(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1984, in _generate
+    _handle_openai_api_error(e)
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 724, in _handle_openai_api_error
+    raise OpenAIAuthenticationError(
+langchain_openai.chat_models.base.OpenAIAuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+2026-09-28 22:10:11,841 | ERROR | AGENT_ERROR user=alice@example.com error=Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-***************************************************************************************************************************...
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1979, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 440, in invoke
+    ret = context.run(self.func, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/prebuilt/chat_agent_executor.py", line 679, in call_model
+    response = cast(AIMessage, static_model.invoke(model_input, config))  # type: ignore[union-attr]
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 488, in invoke
+    self.generate_prompt(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1984, in _generate
+    _handle_openai_api_error(e)
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 724, in _handle_openai_api_error
+    raise OpenAIAuthenticationError(
+langchain_openai.chat_models.base.OpenAIAuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+2026-09-28 22:10:11,842 | ERROR | AGENT_ERROR user=alice@example.com error=Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-***************************************************************************************************************************...
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1979, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 707, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 440, in invoke
+    ret = context.run(self.func, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/prebuilt/chat_agent_executor.py", line 679, in call_model
+    response = cast(AIMessage, static_model.invoke(model_input, config))  # type: ignore[union-attr]
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 488, in invoke
+    self.generate_prompt(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1984, in _generate
+    _handle_openai_api_error(e)
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 724, in _handle_openai_api_error
+    raise OpenAIAuthenticationError(
+langchain_openai.chat_models.base.OpenAIAuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+2026-09-28 22:10:11,846 | ERROR | AGENT_ERROR user=alice@example.com error=Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-***************************************************************************************************************************...
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1979, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2967, in stream
+    for _ in runner.tick(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 207, in tick
+    run_with_retry(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 617, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 707, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 440, in invoke
+    ret = context.run(self.func, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/prebuilt/chat_agent_executor.py", line 679, in call_model
+    response = cast(AIMessage, static_model.invoke(model_input, config))  # type: ignore[union-attr]
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 488, in invoke
+    self.generate_prompt(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1984, in _generate
+    _handle_openai_api_error(e)
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 724, in _handle_openai_api_error
+    raise OpenAIAuthenticationError(
+langchain_openai.chat_models.base.OpenAIAuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+During task with name 'agent' and id '39ea55ea-5a80-7037-ca26-e9e4089a8f48'
+
+2026-09-28 22:10:11,848 | ERROR | CHAT_ERROR user=alice@example.com
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1979, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dhananjay/Downloads/ecommerce-support-agent/src/app_customer.py", line 121, in render_chat
+    reply, _interrupted = invoke_agent(user.email, st.session_state.conversation_id, user_input)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/Downloads/ecommerce-support-agent/src/agent.py", line 129, in invoke_agent
+    result = agent.invoke({"messages": [("user", tagged_message)]}, config=config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/pregel/main.py", line 3913, in invoke
+    for chunk in self.stream(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2967, in stream
+    for _ in runner.tick(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 207, in tick
+    run_with_retry(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 617, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 707, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 440, in invoke
+    ret = context.run(self.func, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/prebuilt/chat_agent_executor.py", line 679, in call_model
+    response = cast(AIMessage, static_model.invoke(model_input, config))  # type: ignore[union-attr]
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 488, in invoke
+    self.generate_prompt(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1984, in _generate
+    _handle_openai_api_error(e)
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 724, in _handle_openai_api_error
+    raise OpenAIAuthenticationError(
+langchain_openai.chat_models.base.OpenAIAuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+During task with name 'agent' and id '39ea55ea-5a80-7037-ca26-e9e4089a8f48'
+
+2026-09-28 22:11:41,018 | ERROR | LLM_ERROR user=alice@example.com error=Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-***************************************************************************************************************************...
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1979, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1984, in _generate
+    _handle_openai_api_error(e)
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 724, in _handle_openai_api_error
+    raise OpenAIAuthenticationError(
+langchain_openai.chat_models.base.OpenAIAuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+2026-09-28 22:11:41,020 | ERROR | AGENT_ERROR user=alice@example.com error=Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-***************************************************************************************************************************...
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1979, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 488, in invoke
+    self.generate_prompt(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1984, in _generate
+    _handle_openai_api_error(e)
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 724, in _handle_openai_api_error
+    raise OpenAIAuthenticationError(
+langchain_openai.chat_models.base.OpenAIAuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+2026-09-28 22:11:41,021 | ERROR | AGENT_ERROR user=alice@example.com error=Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-***************************************************************************************************************************...
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1979, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 440, in invoke
+    ret = context.run(self.func, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/prebuilt/chat_agent_executor.py", line 679, in call_model
+    response = cast(AIMessage, static_model.invoke(model_input, config))  # type: ignore[union-attr]
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 488, in invoke
+    self.generate_prompt(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1984, in _generate
+    _handle_openai_api_error(e)
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 724, in _handle_openai_api_error
+    raise OpenAIAuthenticationError(
+langchain_openai.chat_models.base.OpenAIAuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+2026-09-28 22:11:41,022 | ERROR | AGENT_ERROR user=alice@example.com error=Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-***************************************************************************************************************************...
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1979, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 707, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 440, in invoke
+    ret = context.run(self.func, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/prebuilt/chat_agent_executor.py", line 679, in call_model
+    response = cast(AIMessage, static_model.invoke(model_input, config))  # type: ignore[union-attr]
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 488, in invoke
+    self.generate_prompt(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1984, in _generate
+    _handle_openai_api_error(e)
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 724, in _handle_openai_api_error
+    raise OpenAIAuthenticationError(
+langchain_openai.chat_models.base.OpenAIAuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+2026-09-28 22:11:41,025 | ERROR | AGENT_ERROR user=alice@example.com error=Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-***************************************************************************************************************************...
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1979, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2967, in stream
+    for _ in runner.tick(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 207, in tick
+    run_with_retry(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 617, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 707, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 440, in invoke
+    ret = context.run(self.func, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/prebuilt/chat_agent_executor.py", line 679, in call_model
+    response = cast(AIMessage, static_model.invoke(model_input, config))  # type: ignore[union-attr]
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 488, in invoke
+    self.generate_prompt(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1984, in _generate
+    _handle_openai_api_error(e)
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 724, in _handle_openai_api_error
+    raise OpenAIAuthenticationError(
+langchain_openai.chat_models.base.OpenAIAuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+During task with name 'agent' and id '9d0a408f-8879-75bb-03e4-1c2ac6ebed52'
+
+2026-09-28 22:11:41,026 | ERROR | CHAT_ERROR user=alice@example.com
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1979, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dhananjay/Downloads/ecommerce-support-agent/src/app_customer.py", line 121, in render_chat
+    reply, _interrupted = invoke_agent(user.email, st.session_state.conversation_id, user_input)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/Downloads/ecommerce-support-agent/src/agent.py", line 129, in invoke_agent
+    result = agent.invoke({"messages": [("user", tagged_message)]}, config=config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/pregel/main.py", line 3913, in invoke
+    for chunk in self.stream(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2967, in stream
+    for _ in runner.tick(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 207, in tick
+    run_with_retry(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 617, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 707, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 440, in invoke
+    ret = context.run(self.func, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/prebuilt/chat_agent_executor.py", line 679, in call_model
+    response = cast(AIMessage, static_model.invoke(model_input, config))  # type: ignore[union-attr]
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 488, in invoke
+    self.generate_prompt(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1984, in _generate
+    _handle_openai_api_error(e)
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 724, in _handle_openai_api_error
+    raise OpenAIAuthenticationError(
+langchain_openai.chat_models.base.OpenAIAuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+During task with name 'agent' and id '9d0a408f-8879-75bb-03e4-1c2ac6ebed52'
+
+2026-09-28 22:12:55,916 | ERROR | LLM_ERROR user=alice@example.com error=Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-***************************************************************************************************************************...
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1979, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1984, in _generate
+    _handle_openai_api_error(e)
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 724, in _handle_openai_api_error
+    raise OpenAIAuthenticationError(
+langchain_openai.chat_models.base.OpenAIAuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+2026-09-28 22:12:55,918 | ERROR | AGENT_ERROR user=alice@example.com error=Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-***************************************************************************************************************************...
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1979, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 488, in invoke
+    self.generate_prompt(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1984, in _generate
+    _handle_openai_api_error(e)
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 724, in _handle_openai_api_error
+    raise OpenAIAuthenticationError(
+langchain_openai.chat_models.base.OpenAIAuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+2026-09-28 22:12:55,919 | ERROR | AGENT_ERROR user=alice@example.com error=Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-***************************************************************************************************************************...
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1979, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 440, in invoke
+    ret = context.run(self.func, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/prebuilt/chat_agent_executor.py", line 679, in call_model
+    response = cast(AIMessage, static_model.invoke(model_input, config))  # type: ignore[union-attr]
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 488, in invoke
+    self.generate_prompt(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1984, in _generate
+    _handle_openai_api_error(e)
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 724, in _handle_openai_api_error
+    raise OpenAIAuthenticationError(
+langchain_openai.chat_models.base.OpenAIAuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+2026-09-28 22:12:55,919 | ERROR | AGENT_ERROR user=alice@example.com error=Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-***************************************************************************************************************************...
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1979, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 707, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 440, in invoke
+    ret = context.run(self.func, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/prebuilt/chat_agent_executor.py", line 679, in call_model
+    response = cast(AIMessage, static_model.invoke(model_input, config))  # type: ignore[union-attr]
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 488, in invoke
+    self.generate_prompt(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1984, in _generate
+    _handle_openai_api_error(e)
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 724, in _handle_openai_api_error
+    raise OpenAIAuthenticationError(
+langchain_openai.chat_models.base.OpenAIAuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+2026-09-28 22:12:55,933 | ERROR | AGENT_ERROR user=alice@example.com error=Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-***************************************************************************************************************************...
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1979, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2967, in stream
+    for _ in runner.tick(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 207, in tick
+    run_with_retry(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 617, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 707, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 440, in invoke
+    ret = context.run(self.func, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/prebuilt/chat_agent_executor.py", line 679, in call_model
+    response = cast(AIMessage, static_model.invoke(model_input, config))  # type: ignore[union-attr]
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 488, in invoke
+    self.generate_prompt(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1984, in _generate
+    _handle_openai_api_error(e)
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 724, in _handle_openai_api_error
+    raise OpenAIAuthenticationError(
+langchain_openai.chat_models.base.OpenAIAuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+During task with name 'agent' and id 'b3fa87d4-4833-41b3-4063-a315b778998d'
+
+2026-09-28 22:12:55,935 | ERROR | CHAT_ERROR user=alice@example.com
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1979, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dhananjay/Downloads/ecommerce-support-agent/src/app_customer.py", line 121, in render_chat
+    reply, _interrupted = invoke_agent(user.email, st.session_state.conversation_id, user_input)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/Downloads/ecommerce-support-agent/src/agent.py", line 129, in invoke_agent
+    result = agent.invoke({"messages": [("user", tagged_message)]}, config=config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/pregel/main.py", line 3913, in invoke
+    for chunk in self.stream(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2967, in stream
+    for _ in runner.tick(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 207, in tick
+    run_with_retry(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 617, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 707, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 440, in invoke
+    ret = context.run(self.func, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/prebuilt/chat_agent_executor.py", line 679, in call_model
+    response = cast(AIMessage, static_model.invoke(model_input, config))  # type: ignore[union-attr]
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 488, in invoke
+    self.generate_prompt(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1984, in _generate
+    _handle_openai_api_error(e)
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 724, in _handle_openai_api_error
+    raise OpenAIAuthenticationError(
+langchain_openai.chat_models.base.OpenAIAuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+During task with name 'agent' and id 'b3fa87d4-4833-41b3-4063-a315b778998d'
+
+2026-09-28 22:17:57,030 | ERROR | LLM_ERROR user=alice@example.com error=Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-***************************************************************************************************************************...
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1979, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1984, in _generate
+    _handle_openai_api_error(e)
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 724, in _handle_openai_api_error
+    raise OpenAIAuthenticationError(
+langchain_openai.chat_models.base.OpenAIAuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+2026-09-28 22:17:57,032 | ERROR | AGENT_ERROR user=alice@example.com error=Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-***************************************************************************************************************************...
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1979, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 488, in invoke
+    self.generate_prompt(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1984, in _generate
+    _handle_openai_api_error(e)
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 724, in _handle_openai_api_error
+    raise OpenAIAuthenticationError(
+langchain_openai.chat_models.base.OpenAIAuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+2026-09-28 22:17:57,033 | ERROR | AGENT_ERROR user=alice@example.com error=Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-***************************************************************************************************************************...
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1979, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 440, in invoke
+    ret = context.run(self.func, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/prebuilt/chat_agent_executor.py", line 679, in call_model
+    response = cast(AIMessage, static_model.invoke(model_input, config))  # type: ignore[union-attr]
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 488, in invoke
+    self.generate_prompt(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1984, in _generate
+    _handle_openai_api_error(e)
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 724, in _handle_openai_api_error
+    raise OpenAIAuthenticationError(
+langchain_openai.chat_models.base.OpenAIAuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+2026-09-28 22:17:57,034 | ERROR | AGENT_ERROR user=alice@example.com error=Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-***************************************************************************************************************************...
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1979, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 707, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 440, in invoke
+    ret = context.run(self.func, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/prebuilt/chat_agent_executor.py", line 679, in call_model
+    response = cast(AIMessage, static_model.invoke(model_input, config))  # type: ignore[union-attr]
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 488, in invoke
+    self.generate_prompt(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1984, in _generate
+    _handle_openai_api_error(e)
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 724, in _handle_openai_api_error
+    raise OpenAIAuthenticationError(
+langchain_openai.chat_models.base.OpenAIAuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+2026-09-28 22:17:57,047 | ERROR | AGENT_ERROR user=alice@example.com error=Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-***************************************************************************************************************************...
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1979, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2967, in stream
+    for _ in runner.tick(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 207, in tick
+    run_with_retry(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 617, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 707, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 440, in invoke
+    ret = context.run(self.func, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/prebuilt/chat_agent_executor.py", line 679, in call_model
+    response = cast(AIMessage, static_model.invoke(model_input, config))  # type: ignore[union-attr]
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 488, in invoke
+    self.generate_prompt(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1984, in _generate
+    _handle_openai_api_error(e)
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 724, in _handle_openai_api_error
+    raise OpenAIAuthenticationError(
+langchain_openai.chat_models.base.OpenAIAuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+During task with name 'agent' and id '15bdad3b-ddcc-f1fb-d975-f3e2e8258031'
+
+2026-09-28 22:17:57,049 | ERROR | CHAT_ERROR user=alice@example.com
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1979, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dhananjay/Downloads/ecommerce-support-agent/src/app_customer.py", line 121, in render_chat
+    reply, _interrupted = invoke_agent(user.email, st.session_state.conversation_id, user_input)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/Downloads/ecommerce-support-agent/src/agent.py", line 129, in invoke_agent
+    result = agent.invoke({"messages": [("user", tagged_message)]}, config=config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/pregel/main.py", line 3913, in invoke
+    for chunk in self.stream(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2967, in stream
+    for _ in runner.tick(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 207, in tick
+    run_with_retry(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 617, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 707, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 440, in invoke
+    ret = context.run(self.func, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/prebuilt/chat_agent_executor.py", line 679, in call_model
+    response = cast(AIMessage, static_model.invoke(model_input, config))  # type: ignore[union-attr]
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 488, in invoke
+    self.generate_prompt(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1984, in _generate
+    _handle_openai_api_error(e)
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 724, in _handle_openai_api_error
+    raise OpenAIAuthenticationError(
+langchain_openai.chat_models.base.OpenAIAuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+During task with name 'agent' and id '15bdad3b-ddcc-f1fb-d975-f3e2e8258031'
+
+2026-09-28 22:20:03,648 | ERROR | LLM_ERROR user=alice@example.com error=Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-***************************************************************************************************************************...
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1979, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1984, in _generate
+    _handle_openai_api_error(e)
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 724, in _handle_openai_api_error
+    raise OpenAIAuthenticationError(
+langchain_openai.chat_models.base.OpenAIAuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+2026-09-28 22:20:03,650 | ERROR | AGENT_ERROR user=alice@example.com error=Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-***************************************************************************************************************************...
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1979, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 488, in invoke
+    self.generate_prompt(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1984, in _generate
+    _handle_openai_api_error(e)
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 724, in _handle_openai_api_error
+    raise OpenAIAuthenticationError(
+langchain_openai.chat_models.base.OpenAIAuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+2026-09-28 22:20:03,651 | ERROR | AGENT_ERROR user=alice@example.com error=Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-***************************************************************************************************************************...
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1979, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 440, in invoke
+    ret = context.run(self.func, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/prebuilt/chat_agent_executor.py", line 679, in call_model
+    response = cast(AIMessage, static_model.invoke(model_input, config))  # type: ignore[union-attr]
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 488, in invoke
+    self.generate_prompt(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1984, in _generate
+    _handle_openai_api_error(e)
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 724, in _handle_openai_api_error
+    raise OpenAIAuthenticationError(
+langchain_openai.chat_models.base.OpenAIAuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+2026-09-28 22:20:03,651 | ERROR | AGENT_ERROR user=alice@example.com error=Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-***************************************************************************************************************************...
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1979, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 707, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 440, in invoke
+    ret = context.run(self.func, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/prebuilt/chat_agent_executor.py", line 679, in call_model
+    response = cast(AIMessage, static_model.invoke(model_input, config))  # type: ignore[union-attr]
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 488, in invoke
+    self.generate_prompt(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1984, in _generate
+    _handle_openai_api_error(e)
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 724, in _handle_openai_api_error
+    raise OpenAIAuthenticationError(
+langchain_openai.chat_models.base.OpenAIAuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+2026-09-28 22:20:03,666 | ERROR | AGENT_ERROR user=alice@example.com error=Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-***************************************************************************************************************************...
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1979, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2967, in stream
+    for _ in runner.tick(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 207, in tick
+    run_with_retry(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 617, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 707, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 440, in invoke
+    ret = context.run(self.func, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/prebuilt/chat_agent_executor.py", line 679, in call_model
+    response = cast(AIMessage, static_model.invoke(model_input, config))  # type: ignore[union-attr]
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 488, in invoke
+    self.generate_prompt(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1984, in _generate
+    _handle_openai_api_error(e)
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 724, in _handle_openai_api_error
+    raise OpenAIAuthenticationError(
+langchain_openai.chat_models.base.OpenAIAuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+During task with name 'agent' and id 'bb7c6113-e406-ebe8-1834-271666be6a60'
+
+2026-09-28 22:20:03,668 | ERROR | CHAT_ERROR user=alice@example.com
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1979, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dhananjay/Downloads/ecommerce-support-agent/src/app_customer.py", line 121, in render_chat
+    reply, _interrupted = invoke_agent(user.email, st.session_state.conversation_id, user_input)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/Downloads/ecommerce-support-agent/src/agent.py", line 129, in invoke_agent
+    result = agent.invoke({"messages": [("user", tagged_message)]}, config=config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/pregel/main.py", line 3913, in invoke
+    for chunk in self.stream(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2967, in stream
+    for _ in runner.tick(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 207, in tick
+    run_with_retry(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 617, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 707, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 440, in invoke
+    ret = context.run(self.func, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/prebuilt/chat_agent_executor.py", line 679, in call_model
+    response = cast(AIMessage, static_model.invoke(model_input, config))  # type: ignore[union-attr]
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 488, in invoke
+    self.generate_prompt(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1984, in _generate
+    _handle_openai_api_error(e)
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 724, in _handle_openai_api_error
+    raise OpenAIAuthenticationError(
+langchain_openai.chat_models.base.OpenAIAuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+During task with name 'agent' and id 'bb7c6113-e406-ebe8-1834-271666be6a60'
+
+2026-09-28 22:24:39,308 | ERROR | LLM_ERROR user=alice@example.com error=Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-***************************************************************************************************************************...
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1979, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1984, in _generate
+    _handle_openai_api_error(e)
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 724, in _handle_openai_api_error
+    raise OpenAIAuthenticationError(
+langchain_openai.chat_models.base.OpenAIAuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+2026-09-28 22:24:39,312 | ERROR | AGENT_ERROR user=alice@example.com error=Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-***************************************************************************************************************************...
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1979, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 488, in invoke
+    self.generate_prompt(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1984, in _generate
+    _handle_openai_api_error(e)
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 724, in _handle_openai_api_error
+    raise OpenAIAuthenticationError(
+langchain_openai.chat_models.base.OpenAIAuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+2026-09-28 22:24:39,315 | ERROR | AGENT_ERROR user=alice@example.com error=Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-***************************************************************************************************************************...
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1979, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 440, in invoke
+    ret = context.run(self.func, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/prebuilt/chat_agent_executor.py", line 679, in call_model
+    response = cast(AIMessage, static_model.invoke(model_input, config))  # type: ignore[union-attr]
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 488, in invoke
+    self.generate_prompt(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1984, in _generate
+    _handle_openai_api_error(e)
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 724, in _handle_openai_api_error
+    raise OpenAIAuthenticationError(
+langchain_openai.chat_models.base.OpenAIAuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+2026-09-28 22:24:39,317 | ERROR | AGENT_ERROR user=alice@example.com error=Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-***************************************************************************************************************************...
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1979, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 707, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 440, in invoke
+    ret = context.run(self.func, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/prebuilt/chat_agent_executor.py", line 679, in call_model
+    response = cast(AIMessage, static_model.invoke(model_input, config))  # type: ignore[union-attr]
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 488, in invoke
+    self.generate_prompt(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1984, in _generate
+    _handle_openai_api_error(e)
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 724, in _handle_openai_api_error
+    raise OpenAIAuthenticationError(
+langchain_openai.chat_models.base.OpenAIAuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+2026-09-28 22:24:39,335 | ERROR | AGENT_ERROR user=alice@example.com error=Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-***************************************************************************************************************************...
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1979, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2967, in stream
+    for _ in runner.tick(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 207, in tick
+    run_with_retry(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 617, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 707, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 440, in invoke
+    ret = context.run(self.func, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/prebuilt/chat_agent_executor.py", line 679, in call_model
+    response = cast(AIMessage, static_model.invoke(model_input, config))  # type: ignore[union-attr]
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 488, in invoke
+    self.generate_prompt(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1984, in _generate
+    _handle_openai_api_error(e)
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 724, in _handle_openai_api_error
+    raise OpenAIAuthenticationError(
+langchain_openai.chat_models.base.OpenAIAuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+During task with name 'agent' and id 'ede7cffb-ec39-276b-f81e-2437efbfdb32'
+
+2026-09-28 22:24:39,339 | ERROR | CHAT_ERROR user=alice@example.com
+Traceback (most recent call last):
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1979, in _generate
+    raw_response = self.client.with_raw_response.create(**payload)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_utils/_utils.py", line 298, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 1296, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1375, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/openai/_base_client.py", line 1148, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.AuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/dhananjay/Downloads/ecommerce-support-agent/src/app_customer.py", line 121, in render_chat
+    reply, _interrupted = invoke_agent(user.email, st.session_state.conversation_id, user_input)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/Downloads/ecommerce-support-agent/src/agent.py", line 129, in invoke_agent
+    result = agent.invoke({"messages": [("user", tagged_message)]}, config=config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/pregel/main.py", line 3913, in invoke
+    for chunk in self.stream(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/pregel/main.py", line 2967, in stream
+    for _ in runner.tick(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/pregel/_runner.py", line 207, in tick
+    run_with_retry(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/pregel/_retry.py", line 617, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 707, in invoke
+    input = context.run(step.invoke, input, config, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/_internal/_runnable.py", line 440, in invoke
+    ret = context.run(self.func, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langgraph/prebuilt/chat_agent_executor.py", line 679, in call_model
+    response = cast(AIMessage, static_model.invoke(model_input, config))  # type: ignore[union-attr]
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 3456, in invoke
+    input_ = context.run(step.invoke, input_, config)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/runnables/base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 488, in invoke
+    self.generate_prompt(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 1984, in _generate
+    _handle_openai_api_error(e)
+  File "/home/dhananjay/.local/lib/python3.12/site-packages/langchain_openai/chat_models/base.py", line 724, in _handle_openai_api_error
+    raise OpenAIAuthenticationError(
+langchain_openai.chat_models.base.OpenAIAuthenticationError: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-proj-********************************************************************************************************************************************************AjsA. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'code': 'invalid_api_key', 'param': None}, 'status': 401}
+During task with name 'agent' and id 'ede7cffb-ec39-276b-f81e-2437efbfdb32'
+
+2026-09-29 21:55:03,568 | INFO | TOOL_START user=alice@example.com tool=sql_db_query input={'query': "SELECT * FROM orders WHERE user_id = (SELECT id FROM users WHERE email = 'alice@example.com') ORDER BY order_date DESC LIMIT 5;"}
+2026-09-29 21:55:03,569 | INFO | TOOL_END user=alice@example.com duration=0.00s output=content="[(2, 1, 'SHIPPED', '2024-10-16T09:00:00', 129.99), (1, 1, 'DELIVERED', '2024-10-01T09:00:00', 105.98)]" name='sql_db_query' tool_call_id='call_iZJc5s1LS6Du35IqyL15UhAU'
+2026-09-29 21:55:28,864 | INFO | TOOL_START user=alice@example.com tool=sql_db_query input={'query': "SELECT * FROM orders WHERE id = 2 AND user_id = (SELECT id FROM users WHERE email = 'alice@example.com');"}
+2026-09-29 21:55:28,867 | INFO | TOOL_END user=alice@example.com duration=0.00s output=content="[(2, 1, 'SHIPPED', '2024-10-16T09:00:00', 129.99)]" name='sql_db_query' tool_call_id='call_1vnoIG2UXakxeGnD8IZjeNmw'
+2026-09-29 21:55:48,838 | INFO | TOOL_START user=alice@example.com tool=sql_db_query input={'query': "SELECT * FROM orders WHERE user_id = (SELECT id FROM users WHERE email = 'alice@example.com') ORDER BY order_date DESC;"}
+2026-09-29 21:55:48,841 | INFO | TOOL_END user=alice@example.com duration=0.00s output=content="[(2, 1, 'SHIPPED', '2024-10-16T09:00:00', 129.99), (1, 1, 'DELIVERED', '2024-10-01T09:00:00', 105.98)]" name='sql_db_query' tool_call_id='call_hgyHIhbDkltZjpr0zTG1ZHof'
+2026-09-29 21:59:03,704 | INFO | TOOL_START user=alice@example.com tool=rag_policy_search input={'question': 'How long does shipping take?'}
+2026-09-29 21:59:16,551 | INFO | TOOL_END user=alice@example.com duration=12.85s output=content='[1] (from shipping_policy.txt)\nThese timelines are **estimates** and may be affected by factors such as:\n- Public holidays.\n- Weather disruptions.\n- Courier capacity and operational const...
+2026-09-29 22:04:59,948 | INFO | TOOL_START user=alice@example.com tool=sql_db_query input={'query': "SELECT * FROM orders WHERE user_id = (SELECT id FROM users WHERE email = 'alice@example.com') ORDER BY order_date DESC LIMIT 5;"}
+2026-09-29 22:04:59,949 | INFO | TOOL_END user=alice@example.com duration=0.00s output=content="[(6, 1, 'DELIVERED', '2026-09-18T03:00:00+00:00', 59.99), (34, 1, 'DELIVERED', '2026-09-13T10:00:00+00:00', 349.97), (16, 1, 'CANCELLED', '2026-08-27T08:00:00+00:00', 59.99), (18, 1, 'DELIVER...
+2026-09-29 22:49:58,643 | INFO | TOOL_START user=alice@example.com tool=sql_db_query input={'query': "SELECT * FROM orders WHERE user_id = (SELECT id FROM users WHERE email = 'alice@example.com') ORDER BY order_date DESC LIMIT 5;"}
+2026-09-29 22:49:58,646 | INFO | TOOL_END user=alice@example.com duration=0.00s output=content="[(6, 1, 'DELIVERED', '2026-09-18T03:00:00+00:00', 59.99), (34, 1, 'DELIVERED', '2026-09-13T10:00:00+00:00', 349.97), (16, 1, 'CANCELLED', '2026-08-27T08:00:00+00:00', 59.99), (18, 1, 'DELIVER...
+2026-09-29 22:51:29,370 | INFO | TOOL_START user=alice@example.com tool=sql_db_query input={'query': "SELECT order_items.* FROM order_items JOIN orders ON order_items.order_id = orders.id WHERE orders.user_id = (SELECT id FROM users WHERE email = 'alice@example.com') AND order_items.refund_...
+2026-09-29 22:51:29,372 | INFO | TOOL_END user=alice@example.com duration=0.00s output=content="Error: (sqlite3.OperationalError) no such column: order_items.refund_status\n[SQL: SELECT order_items.* FROM order_items JOIN orders ON order_items.order_id = orders.id WHERE orders.user_id =...
+2026-09-29 22:51:30,471 | INFO | TOOL_START user=alice@example.com tool=sql_db_schema input={'table_names': 'order_items'}
+2026-09-29 22:51:30,476 | INFO | TOOL_END user=alice@example.com duration=0.00s output=content='\nCREATE TABLE order_items (\n\tid INTEGER, \n\torder_id INTEGER NOT NULL, \n\tproduct_id INTEGER NOT NULL, \n\tquantity INTEGER NOT NULL, \n\tunit_price REAL NOT NULL, \n\tPRIMARY KEY (id), ...
+2026-09-29 22:51:31,759 | INFO | TOOL_START user=alice@example.com tool=sql_db_query input={'query': "SELECT order_items.* FROM order_items JOIN orders ON order_items.order_id = orders.id WHERE orders.user_id = (SELECT id FROM users WHERE email = 'alice@example.com') AND order_items.order_i...
+2026-09-29 22:51:31,763 | INFO | TOOL_END user=alice@example.com duration=0.00s output=content='' name='sql_db_query' tool_call_id='call_D2qUqFFSIeIIoezmus6Nhmwr'
+2026-09-29 22:51:55,621 | INFO | TOOL_START user=alice@example.com tool=sql_db_query input={'query': "SELECT * FROM returns WHERE order_id IN (SELECT id FROM orders WHERE user_id = (SELECT id FROM users WHERE email = 'alice@example.com')) AND status = 'REFUNDED';"}
+2026-09-29 22:51:55,623 | INFO | TOOL_END user=alice@example.com duration=0.00s output=content='' name='sql_db_query' tool_call_id='call_conKoZQ4RZj5rQvfum0FCOxO'
+2026-09-29 22:52:06,745 | INFO | TOOL_START user=alice@example.com tool=sql_db_query input={'query': "SELECT order_items.* FROM order_items JOIN orders ON order_items.order_id = orders.id WHERE orders.user_id = (SELECT id FROM users WHERE email = 'alice@example.com') AND orders.status = 'SH...
+2026-09-29 22:52:06,747 | INFO | TOOL_END user=alice@example.com duration=0.00s output=content='[(3, 2, 3, 1, 129.99)]' name='sql_db_query' tool_call_id='call_G8WpwzBgviAxBt7VDKrWSiei'
+2026-09-29 22:52:20,647 | INFO | TOOL_START user=alice@example.com tool=sql_db_query input={'query': "SELECT order_items.* FROM order_items JOIN orders ON order_items.order_id = orders.id WHERE orders.user_id = (SELECT id FROM users WHERE email = 'alice@example.com') AND orders.status = 'DE...
+2026-09-29 22:52:20,651 | INFO | TOOL_END user=alice@example.com duration=0.00s output=content='[(8, 6, 9, 1, 59.99), (64, 34, 3, 2, 129.99), (65, 34, 8, 1, 89.99), (30, 18, 4, 1, 19.99), (60, 31, 8, 2, 89.99), (48, 26, 5, 2, 39.99), (49, 26, 8, 2, 89.99), (1, 1, 1, 1, 25.99), (2, 1, 2,...
+2026-09-29 22:52:34,541 | INFO | TOOL_START user=alice@example.com tool=sql_db_query input={'query': "SELECT order_items.* FROM order_items JOIN orders ON order_items.order_id = orders.id WHERE orders.user_id = (SELECT id FROM users WHERE email = 'alice@example.com') ORDER BY orders.order_d...
+2026-09-29 22:52:34,545 | INFO | TOOL_END user=alice@example.com duration=0.00s output=content='[(8, 6, 9, 1, 59.99), (64, 34, 3, 2, 129.99), (65, 34, 8, 1, 89.99), (28, 16, 9, 1, 59.99), (30, 18, 4, 1, 19.99), (60, 31, 8, 2, 89.99), (48, 26, 5, 2, 39.99), (49, 26, 8, 2, 89.99), (3, 2, ...
+2026-09-29 22:52:54,973 | INFO | TOOL_START user=alice@example.com tool=sql_db_query input={'query': "SELECT * FROM orders WHERE user_id = (SELECT id FROM users WHERE email = 'alice@example.com') ORDER BY order_date DESC LIMIT 1;"}
+2026-09-29 22:52:54,977 | INFO | TOOL_END user=alice@example.com duration=0.00s output=content="[(6, 1, 'DELIVERED', '2026-09-18T03:00:00+00:00', 59.99)]" name='sql_db_query' tool_call_id='call_4zFVwp8A98rScdLRqSYw2pDI'
+2026-09-29 22:53:32,220 | INFO | TOOL_START user=alice@example.com tool=sql_db_query input={'query': "SELECT * FROM orders WHERE user_id = (SELECT id FROM users WHERE email = 'alice@example.com') AND total_amount BETWEEN 100 AND 200;"}
+2026-09-29 22:53:32,222 | INFO | TOOL_END user=alice@example.com duration=0.00s output=content="[(1, 1, 'DELIVERED', '2024-10-01T09:00:00', 105.98), (2, 1, 'SHIPPED', '2024-10-16T09:00:00', 129.99), (31, 1, 'DELIVERED', '2026-08-13T04:00:00+00:00', 179.98)]" name='sql_db_query' tool_cal...
+2026-09-29 22:53:49,906 | INFO | TOOL_START user=alice@example.com tool=sql_db_query input={'query': "SELECT * FROM orders WHERE user_id = (SELECT id FROM users WHERE email = 'alice@example.com') AND total_amount BETWEEN 100 AND 106;"}
+2026-09-29 22:53:49,911 | INFO | TOOL_END user=alice@example.com duration=0.01s output=content="[(1, 1, 'DELIVERED', '2024-10-01T09:00:00', 105.98)]" name='sql_db_query' tool_call_id='call_kwYJvD7klbXzcW1Bbva9gr23'
+2026-09-29 22:54:45,313 | INFO | TOOL_START user=alice@example.com tool=sql_db_query input={'query': "SELECT * FROM users WHERE email = 'shweta@example.com';"}
+2026-09-29 22:54:45,315 | INFO | TOOL_END user=alice@example.com duration=0.00s output=content='' name='sql_db_query' tool_call_id='call_CIPxL5UPbYChMCwIQqig3KsV'
+2026-09-29 22:54:53,670 | INFO | TOOL_START user=alice@example.com tool=sql_db_query input={'query': "SELECT * FROM users WHERE email = 'alice@example.com';"}
+2026-09-29 22:54:53,677 | INFO | TOOL_END user=alice@example.com duration=0.01s output=content="[(1, 'alice@example.com', 'alice123', 'Alice Customer', 'customer', '2024-09-15T10:00:00')]" name='sql_db_query' tool_call_id='call_SPJexm8qS0abUE0e7Z024Fdc'
+2026-09-29 22:55:35,478 | INFO | TOOL_START user=alice@example.com tool=sql_db_query input={'query': "SELECT * FROM orders WHERE user_id = (SELECT id FROM users WHERE email = 'alice@example.com') AND status = 'DELIVERED' AND strftime('%Y-%m', order_date) = strftime('%Y-%m', 'now', '-1 month...
+2026-09-29 22:55:35,480 | INFO | TOOL_END user=alice@example.com duration=0.00s output=content="[(18, 1, 'DELIVERED', '2026-08-21T03:00:00+00:00', 19.99), (26, 1, 'DELIVERED', '2026-08-12T00:00:00+00:00', 259.96), (31, 1, 'DELIVERED', '2026-08-13T04:00:00+00:00', 179.98)]" name='sql_db_...
+2026-09-29 22:56:24,056 | INFO | TOOL_START user=alice@example.com tool=sql_db_query input={'query': "SELECT * FROM orders WHERE user_id = (SELECT id FROM users WHERE email = 'alice@example.com') AND status = 'DELIVERED' AND strftime('%Y-%m', order_date) = '2026-08';"}
+2026-09-29 22:56:24,058 | INFO | TOOL_END user=alice@example.com duration=0.00s output=content="[(18, 1, 'DELIVERED', '2026-08-21T03:00:00+00:00', 19.99), (26, 1, 'DELIVERED', '2026-08-12T00:00:00+00:00', 259.96), (31, 1, 'DELIVERED', '2026-08-13T04:00:00+00:00', 179.98)]" name='sql_db_...
+2026-09-29 22:57:17,399 | INFO | TOOL_START user=alice@example.com tool=sql_db_query input={'query': "SELECT * FROM orders WHERE user_id = (SELECT id FROM users WHERE email = 'alice@example.com') AND status = 'DELIVERED' AND order_date < '2026-09-01';"}
+2026-09-29 22:57:17,401 | INFO | TOOL_END user=alice@example.com duration=0.00s output=content="[(1, 1, 'DELIVERED', '2024-10-01T09:00:00', 105.98), (18, 1, 'DELIVERED', '2026-08-21T03:00:00+00:00', 19.99), (26, 1, 'DELIVERED', '2026-08-12T00:00:00+00:00', 259.96), (31, 1, 'DELIVERED', ...
+2026-09-29 23:00:15,597 | INFO | TOOL_START user=alice@example.com tool=sql_db_query input={'query': "SELECT * FROM orders WHERE user_id = (SELECT id FROM users WHERE email = 'alice@example.com') AND status = 'DELIVERED' AND order_date < '2026-09-01';"}
+2026-09-29 23:00:15,600 | INFO | TOOL_END user=alice@example.com duration=0.00s output=content="[(1, 1, 'DELIVERED', '2024-10-01T09:00:00', 105.98), (18, 1, 'DELIVERED', '2026-08-21T03:00:00+00:00', 19.99), (26, 1, 'DELIVERED', '2026-08-12T00:00:00+00:00', 259.96), (31, 1, 'DELIVERED', ...

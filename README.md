@@ -1,4 +1,4 @@
-# ShopBot — LangChain 1.x / LangGraph E-commerce Support Agent
+# YourKart — LangChain / LangGraph E-commerce Support Agent
 
 A single LangGraph agent that powers two Streamlit apps: a customer support
 chat and an admin review dashboard, built against `ecommerce.db`.
@@ -55,6 +55,7 @@ src/
   gmail_tool.py             # send_gmail_notification tool (+ email_logs writes)
   action_tools.py          # cancel_order_action / request_return_action (HITL)
   agent.py                 # builds the single agent, checkpointer, resume_thread()
+  ui_theme.py               # YourKart Flipkart-style light/dark theme + header
   app_customer.py           # Streamlit customer chat (port 8501)
   app_admin.py               # Streamlit admin dashboard (port 8502)
 logs/app.log               # created on first run

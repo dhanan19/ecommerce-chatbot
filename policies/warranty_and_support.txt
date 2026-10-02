@@ -1,0 +1,34 @@
+## Warranty and Support Policy
+
+This document describes warranty coverage and how customers can reach ShopBot support.
+Use it for questions about warranty length, replacements, and support hours — not for a specific order status.
+
+### 1. Standard warranty
+
+- Most electronics (mice, keyboards, headphones, chargers) include a **12-month limited warranty** from the delivery date.
+- The warranty covers manufacturing defects in materials and workmanship under normal use.
+- It does **not** cover accidental damage, liquid damage, lost accessories, or wear from normal use (for example, worn keycaps).
+
+### 2. Warranty vs returns
+
+- The **30-day return window** is for change-of-mind and standard returns (see returns_policy.txt).
+- After 30 days, a defective item may still be eligible for **warranty repair or replacement** if it is within 12 months of delivery.
+- Warranty claims still require a support ticket. ShopBot submits the request for **human admin review**; it is not auto-approved.
+
+### 3. Replacements
+
+- If a warranty claim is approved, we send a replacement of the same model when stock is available.
+- If the model is discontinued, we offer a comparable replacement or store credit for the original paid amount.
+- Customers should keep the original packaging when possible for warranty returns.
+
+### 4. Support hours and channels
+
+- ShopBot chat is available **24/7** for order status, policy questions, and submitting cancel/return requests.
+- Human admin review of cancellations, returns, and warranty tickets is typically **Monday–Friday, 9:00–18:00** local store time.
+- Email notifications (or simulated notifications in the lab environment) are written to `email_logs` whenever a request is decided.
+
+### 5. What ShopBot can and cannot do
+
+- ShopBot **can** look up this customer's orders, payments, tickets, and policy answers.
+- ShopBot **cannot** cancel an order or approve a return without admin review.
+- ShopBot will not share another customer's orders, tickets, or email history.
